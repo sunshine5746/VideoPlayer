@@ -1,0 +1,85 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>html5播放器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../src/videoplayer.css" rel="stylesheet" />
+    <style>
+        body { padding: 0; margin: 0; border: 0; }
+        html { font-size: 100px; font-size: calc(100vw/3.2); }
+        body { font-size: .14rem; }
+        body { background: #f5f5f5; padding: 0; margin: 0; color: #333; }
+    </style>
+</head>
+<body>
+    <div style="width:3.2rem;height:1.8rem;">
+        <div class="VideoPlayer" data-play="false" data-control="true" data-fullscreen="false" style="width:100%;height:100%;">
+            <video class="vp_video" x-webkit-airplay="true" webkit-playsinline="true" playsinline="true" preload="none" src="video.mp4"></video>
+            <div class="vp_cover" style="background-image: url(cover.png)"></div>
+            <div class="vp_control">
+                <div class="vp_control_top vp_flex">
+                    <div class="vp_retreat_btn">
+                        <svg class="vp_icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M290.650683 513.620917l387.770628 383.928113 54.926984-55.30356L400.968208 513.168616l329.609996-331.87048-55.396681-54.847166L290.650683 513.620917z" fill="#fff"></path>
+                        </svg>
+                    </div>
+                    <div class="vp_title">
+                        <span class="vp_title_roll">视频标题</span>
+                    </div>
+                </div>
+                <div class="vp_control_bottom vp_flex">
+                    <div class="vp_control_play_btn">
+                        <svg class="vp_icon" data-type="1" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M288 128C270.336 128 256 142.336 256 160l0 768C256 945.664 270.336 960 288 960S320 945.664 320 928l0-768C320 142.336 305.664 128 288 128zM672 128C654.336 128 640 142.336 640 160l0 768c0 17.664 14.336 32 32 32s32-14.336 32-32l0-768C704 142.336 689.664 128 672 128z" fill="#fff"></path>
+                        </svg>
+                        <svg class="vp_icon" data-type="0" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M371.571862 880.205281 371.571862 880.205281 775.924433 549.115296C803.306549 526.694406 803.359491 490.229328 775.924433 467.765088L371.571862 136.675104C344.189747 114.254214 321.896298 124.671949 321.896298 160.040589L321.896298 856.839795C321.896298 892.486135 344.136806 902.669521 371.571862 880.205281L371.571862 880.205281ZM412.117862 929.723176 412.117862 929.723176C342.998042 986.319529 257.896298 946.619538 257.896298 856.839795L257.896298 160.040589C257.896298 70.558656 343.036778 30.592573 412.117862 87.15721L816.470433 418.247194C875.16997 466.311261 875.132094 550.600138 816.470433 598.63319L412.117862 929.723176Z" fill="#fff"></path>
+                        </svg>
+                    </div>
+                    <div class="vp_control_progress_bar vp_flex">
+                        <div class="vp_time_mod">
+                            <span class="vp_time_current vp_fontsize_10">00:00</span>
+                            <span class="vp_time_duration vp_fontsize_10">00:00</span>
+                        </div>
+                        <div class="vp_progress_wrap">
+                            <div class="vp_progress_load" style="width:0"></div>
+                            <div class="vp_progress_play" style="width:0"></div>
+                            <div class="vp_progress_btn" style="left:0;"></div>
+                        </div>
+                    </div>
+                    <div class="vp_bullet_screen_btn vp_hide">
+                        <div class="vp_switch_box" data-checked="false"></div>
+                    </div>
+                    <div class="vp_control_definition vp_hide">清晰度</div>
+                    <div class="vp_control_fullscreen_btn">
+                        <svg class="vp_icon" data-type="1" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m452.4,954.501c-18.842,0 -42.933,-15.292 -42.933,-34.133l0,-262.963l-287.334,287.266c-12.766,12.766 -33.451,12.766 -46.217,0s-12.766,-33.451 0,-46.217l285.286,-285.286l-258.935,0c-18.842,0 -34.133,-15.292 -34.133,-34.133s15.292,-34.133 34.133,-34.133l338.193,0c4.983,-0.751 9.079,0.546 13.926,2.185c1.57,0.546 3.072,1.092 4.506,1.843c3.004,1.502 6.554,1.229 9.011,3.755c1.775,1.775 1.365,4.369 2.662,6.417c3.209,4.301 5.257,9.284 6.144,14.746c0.068,0.956 0.546,1.707 0.478,2.594c0.068,0.887 0.546,1.707 0.546,2.594l0,341.333c0,18.842 -15.292,34.133 -34.133,34.133l0,-0.001z" fill="#fff" />
+                            <path d="M921.6,476.501zM660.798,412.101 L919.733,412.101 C938.575,412.101 953.866,427.393 953.866,446.234 S938.574,480.367 919.733,480.367 L581.54,480.367 C576.557,481.118 572.461,479.821 567.614,478.182 C566.044,477.636 564.542,477.09 563.108,476.339 C560.104,474.837 556.554,475.11 554.097,472.584 C552.322,470.809 552.732,468.215 551.435,466.167 C548.226,461.866 546.178,456.883 545.291,451.421 C545.223,450.465 544.745,449.714 544.813,448.827 C544.745,447.94 544.267,447.12 544.267,446.233 L544.267,104.9 C544.267,86.058 559.559,70.767 578.4,70.767 S612.533,86.059 612.533,104.7 L612.533,367.863 L899.867,80.597 C912.633,67.831 933.318,67.831 946.084,80.597 C958.85,93.363 958.85,114.048 946.084,126.814 L660.798,412.1 L660.798,412.101 z" fill="#fff"></path>
+                        </svg>
+                        <svg class="vp_icon" data-type="0" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M921.6 476.501c-18.842 0-34.133-15.292-34.133-34.133v-262.963l-287.334 287.266c-12.766 12.766-33.451 12.766-46.217 0s-12.766-33.451 0-46.217l285.286-285.286h-258.935c-18.842 0-34.133-15.292-34.133-34.133s15.292-34.133 34.133-34.133h338.193c4.983-0.751 9.079 0.546 13.926 2.185 1.57 0.546 3.072 1.092 4.506 1.843 3.004 1.502 6.554 1.229 9.011 3.755 1.775 1.775 1.365 4.369 2.662 6.417 3.209 4.301 5.257 9.284 6.144 14.746 0.068 0.956 0.546 1.707 0.478 2.594 0.068 0.887 0.546 1.707 0.546 2.594v341.333c0 18.842-15.292 34.133-34.133 34.133zM184.798 886.101h258.935c18.842 0 34.133 15.292 34.133 34.133s-15.292 34.133-34.133 34.133h-338.193c-4.983 0.751-9.079-0.546-13.926-2.185-1.57-0.546-3.072-1.092-4.506-1.843-3.004-1.502-6.554-1.229-9.011-3.755-1.775-1.775-1.365-4.369-2.662-6.417-3.209-4.301-5.257-9.284-6.144-14.746-0.068-0.956-0.546-1.707-0.478-2.594-0.068-0.887-0.546-1.707-0.546-2.594v-341.333c0-18.842 15.292-34.133 34.133-34.133s34.133 15.292 34.133 34.133v262.963l287.334-287.266c12.766-12.766 33.451-12.766 46.217 0 12.766 12.766 12.766 33.451 0 46.217l-285.286 285.286z" fill="#fff"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="vp_definition_option vp_flex" data-state="hide">
+                <ul>
+                    <li data-code="">4K</li>
+                    <li data-code="">2K</li>
+                    <li data-code="">1080P</li>
+                    <li class="selected" data-code="">超清</li>
+                    <li data-code="">高清</li>
+                    <li data-code="">普清</li>
+                </ul>
+            </div>
+            <div class="vp_loading vp_hide">
+                <div class="vp_ico"></div>
+                <div class="vp_text"><span>缓</span><span>冲</span><span>中</span><span>.</span><span>.</span><span>.</span></div>
+            </div>
+            <div class="vp_block vp_hide"></div>
+        </div>
+    </div>
+    <script>
+    </script>
+</body>
+</html>
