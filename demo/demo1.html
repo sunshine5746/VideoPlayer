@@ -3,20 +3,45 @@
 <head>
     <title>html5播放器</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="../src/videoplayer.css" rel="stylesheet" />
+    <link href="../src/css/videoplayer.css" rel="stylesheet" />
     <style>
-        body { padding: 0; margin: 0; border: 0; }
-        html { font-size: 100px; font-size: calc(100vw/3.2); }
-        body { font-size: .14rem; }
-        body { background: #f5f5f5; padding: 0; margin: 0; color: #333; }
+        body { padding: 0; margin: 0; border: 0; background: #f5f5f5;color: #333; }
+        #PlayerContainer{position:absolute;width:100%;height:100%;}
     </style>
 </head>
 <body>
-    <div style="width:3.2rem;height:1.8rem;">
-        <div class="VideoPlayer" data-play="false" data-control="true" data-fullscreen="false" style="width:100%;height:100%;">
-            <video class="vp_video" x-webkit-airplay="true" webkit-playsinline="true" playsinline="true" preload="none" src="video.mp4"></video>
-            <div class="vp_cover" style="background-image: url(cover.png)"></div>
+    <div id="PlayerContainer">
+        <div class="VideoPlayer" data-play="false" data-lock="false" data-control="false" data-fullscreen="false" style="width:100%;height:100%;">
+            <video class="vp_video" x-webkit-airplay="true" webkit-playsinline="true" playsinline="true" preload="none"></video>
+            <div class="vp_cover"></div>
             <div class="vp_control">
+                <div class="vp_control_priming"></div>
+                <div class="vp_control_left vp_flex">
+                    <ul class="vp_control_left_wrap">
+                        <li class="vp_lockScreen_btn vp_hides">
+                            <svg class="vp_icon" data-type="0" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M823.466667 1024 200.533333 1024c-64 0-119.466667-51.2-119.466667-119.466667l0-422.4c0-64 55.466667-119.466667 119.466667-119.466667l622.933333 0c64 0 119.466667 51.2 119.466667 119.466667l0 422.4C942.933333 972.8 887.466667 1024 823.466667 1024zM200.533333 430.933333c-29.866667 0-51.2 21.333333-51.2 51.2l0 422.4c0 29.866667 21.333333 51.2 51.2 51.2l622.933333 0c29.866667 0 51.2-21.333333 51.2-51.2l0-422.4c0-29.866667-21.333333-51.2-51.2-51.2L200.533333 430.933333z" fill="#fff"></path>
+                                <path d="M298.666667 430.933333c-17.066667 0-34.133333-17.066667-34.133333-34.133333L264.533333 243.2C264.533333 110.933333 375.466667 0 512 0c132.266667 0 238.933333 102.4 247.466667 230.4 0 4.266667 0 8.533333 0 17.066667l0 17.066667c0 17.066667-17.066667 34.133333-34.133333 34.133333s-34.133333-17.066667-34.133333-34.133333L691.2 243.2c0-4.266667 0-8.533333 0-12.8-4.266667-93.866667-85.333333-166.4-179.2-166.4-98.133333 0-179.2 81.066667-179.2 174.933333l0 153.6C332.8 418.133333 315.733333 430.933333 298.666667 430.933333z" fill="#fff"></path>
+                                <path d="M593.066667 627.2c0-42.666667-34.133333-76.8-76.8-76.8s-81.066667 34.133333-81.066667 76.8c0 29.866667 38.4 55.466667 38.4 68.266667l0 72.533333c0 21.333333 21.333333 38.4 42.666667 38.4s42.666667-17.066667 42.666667-38.4l0-72.533333C554.666667 678.4 593.066667 652.8 593.066667 627.2z" fill="#fff"></path>
+                            </svg>
+                            <svg class="vp_icon" data-type="1" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M823.466667 1024 200.533333 1024c-64 0-119.466667-51.2-119.466667-119.466667l0-422.4c0-64 55.466667-119.466667 119.466667-119.466667l622.933333 0c64 0 119.466667 51.2 119.466667 119.466667l0 422.4C942.933333 972.8 887.466667 1024 823.466667 1024zM200.533333 430.933333c-29.866667 0-51.2 21.333333-51.2 51.2l0 422.4c0 29.866667 21.333333 51.2 51.2 51.2l622.933333 0c29.866667 0 51.2-21.333333 51.2-51.2l0-422.4c0-29.866667-21.333333-51.2-51.2-51.2L200.533333 430.933333z" fill="#fff"></path>
+                                <path d="M298.666667 430.933333c-17.066667 0-34.133333-17.066667-34.133333-34.133333L264.533333 243.2C264.533333 110.933333 375.466667 0 512 0c132.266667 0 238.933333 102.4 247.466667 230.4 0 4.266667 0 8.533333 0 17.066667l0 153.6c0 17.066667-17.066667 34.133333-34.133333 34.133333s-34.133333-17.066667-34.133333-34.133333L691.2 243.2c0-4.266667 0-8.533333 0-12.8-4.266667-93.866667-85.333333-166.4-179.2-166.4-98.133333 0-179.2 81.066667-179.2 174.933333l0 153.6C332.8 418.133333 315.733333 430.933333 298.666667 430.933333z" fill="#fff"></path>
+                                <path d="M593.066667 627.2c0-42.666667-34.133333-76.8-76.8-76.8s-81.066667 34.133333-81.066667 76.8c0 29.866667 38.4 55.466667 38.4 68.266667l0 72.533333c0 21.333333 21.333333 38.4 42.666667 38.4s42.666667-17.066667 42.666667-38.4l0-72.533333C554.666667 678.4 593.066667 652.8 593.066667 627.2z" fill="#fff"></path>
+                            </svg>
+                        </li>
+                    </ul>
+                </div>
+                <div class="vp_control_right vp_flex">
+                    <ul class="vp_control_right_wrap">
+                        <li class="vp_input_bullet_screen_btn vp_hides">
+                            <svg class="vp_icon" data-type="0" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M839.622656 794.479616c0 54.800384-44.640256 99.403776-99.403776 99.403776L222.808064 893.883392c-54.834176 0-99.439616-44.607488-99.439616-99.403776L123.368448 277.051392c0-54.800384 44.607488-99.405824 99.439616-99.405824l405.920768 0c0.745472-0.831488 1.271808-1.748992 2.085888-2.542592l59.568128-59.603968L222.808064 115.499008c-89.12384 0-161.588224 72.466432-161.588224 161.554432L61.21984 794.48064c0 89.069568 72.466432 161.553408 161.588224 161.553408l517.409792 0c89.069568 0 161.555456-72.480768 161.555456-161.553408L901.773312 329.588736l-62.148608 62.184448L839.622656 794.479616 839.622656 794.479616z" fill="#fff"></path>
+                                <path d="M954.873856 175.120384 843.528192 63.79008c-8.602624-8.58624-22.557696-8.58624-31.108096 0l-15.548416 15.582208-35.349504 35.331072-2.069504 2.049024-452.31104 452.312064c-2.06848 2.085888-3.709952 4.576256-4.803584 7.315456l-75.362304 186.69056c-3.340288 8.179712-1.414144 17.524736 4.841472 23.743488 4.202496 4.220928 9.838592 6.4512 15.509504 6.4512 2.772992 0 5.56544-0.513024 8.251392-1.594368l118.606848-47.853568 68.103168-27.48928c2.717696-1.093632 5.211136-2.738176 7.26016-4.857856l503.384064-503.364608 1.941504-1.926144c4.06528-4.099072 6.41536-9.680896 6.41536-15.546368C961.289216 184.835072 958.939136 179.253248 954.873856 175.120384zM421.669888 677.231616l-72.904704 29.4144-36.815872-36.760576 29.484032-72.870912L827.927552 110.42816l36.993024 36.922368L401.974272 610.294784c-4.257792 4.278272-4.257792 11.200512 0 15.511552 2.20672 2.154496 4.946944 3.2512 7.773184 3.2512 2.843648 0 5.635072-1.09568 7.789568-3.2512l462.92992-462.912512 27.736064 27.736064L421.669888 677.231616z" fill="#fff"></path>
+                            </svg>
+                        </li>
+                    </ul>
+                </div>
                 <div class="vp_control_top vp_flex">
                     <div class="vp_retreat_btn">
                         <svg class="vp_icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -25,6 +50,9 @@
                     </div>
                     <div class="vp_title">
                         <span class="vp_title_roll">视频标题</span>
+                    </div>
+                    <div class="vp_bullet_screen_btn vp_hides">
+                        <div class="vp_switch_box"><input type="checkbox"><i></i></div>
                     </div>
                 </div>
                 <div class="vp_control_bottom vp_flex">
@@ -42,13 +70,10 @@
                             <span class="vp_time_duration vp_fontsize_10">00:00</span>
                         </div>
                         <div class="vp_progress_wrap">
-                            <div class="vp_progress_load" style="width:0"></div>
-                            <div class="vp_progress_play" style="width:0"></div>
-                            <div class="vp_progress_btn" style="left:0;"></div>
+                            <div class="vp_progress_load"></div>
+                            <div class="vp_progress_play"></div>
+                            <div class="vp_progress_btn"></div>
                         </div>
-                    </div>
-                    <div class="vp_bullet_screen_btn vp_hide">
-                        <div class="vp_switch_box" data-checked="false"></div>
                     </div>
                     <div class="vp_control_definition vp_hide">清晰度</div>
                     <div class="vp_control_fullscreen_btn">
@@ -61,25 +86,45 @@
                         </svg>
                     </div>
                 </div>
+                <div class="vp_control_load_wrap vp_masks" data-state="show">
+                    <div class="vp_control_load_btn">
+                        <svg class="vp_icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M852.727563 392.447107C956.997809 458.473635 956.941389 565.559517 852.727563 631.55032L281.888889 993.019655C177.618644 1059.046186 93.090909 1016.054114 93.090909 897.137364L93.090909 126.860063C93.090909 7.879206 177.675064-35.013033 281.888889 30.977769L852.727563 392.447107 852.727563 392.447107Z" fill="#fff"></path>
+                        </svg>
+                    </div>
+                </div>
             </div>
-            <div class="vp_definition_option vp_flex" data-state="hide">
-                <ul>
-                    <li data-code="">4K</li>
-                    <li data-code="">2K</li>
-                    <li data-code="">1080P</li>
-                    <li class="selected" data-code="">超清</li>
-                    <li data-code="">高清</li>
-                    <li data-code="">普清</li>
-                </ul>
+            <div class="vp_definition_wrap vp_masks" data-state="hide">
+                <div class="vp_definition_option"></div>
             </div>
-            <div class="vp_loading vp_hide">
-                <div class="vp_ico"></div>
-                <div class="vp_text"><span>缓</span><span>冲</span><span>中</span><span>.</span><span>.</span><span>.</span></div>
+            <div class="vp_loading_wrap vp_popup vp_hide">
+                <div class="vp_loading">
+                    <div class="vp_ico"></div>
+                    <div class="vp_text"><i>缓</i><i>冲</i><i>中</i><i>.</i><i>.</i><i>.</i></div>
+                </div>
             </div>
-            <div class="vp_block vp_hide"></div>
         </div>
     </div>
     <script>
+        window.onerror = function (e1, e2, e3) {
+            alert(e1 + e2 + e3);
+        };
+    </script>
+    <script src="../src/VideoPlayer.js"></script>
+    <script>
+        var vp1 = new VideoPlayer({
+            container: '#PlayerContainer',
+            cover: 'cover.jpg',
+            source: {
+                '4K': '',
+                '2K': '',
+                '1080P': '',
+                '超清': '../media/jay.mp3',
+                '高清': '../media/mov_bbb.mp4',
+                '普清': 'video.mp4'
+            },
+            selected_definition: '高清'
+        });
     </script>
 </body>
 </html>
